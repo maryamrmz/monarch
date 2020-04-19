@@ -1,16 +1,10 @@
-import React from 'react';
+import React from "react";
 
 import "./menu.styles.scss";
 
-export const Menu = (props) => (
-    <div className="top-row">
-        <div className="right-row">
-            {props.items.map(item => (
-                <a href="#" title={item.name} className={item.class}>
-                    <img src={item.src} />
-                </a>
-            ))}
-        </div>
-    </div>
-)
-
+export const Menu = ({ name, className, src, badge }) => (
+    <a href='#' title={name} className={className}>
+        <img src={src} alt='' />
+        <img src={badge} alt='' className='small' />
+    </a>
+);
