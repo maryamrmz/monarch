@@ -21,19 +21,15 @@ class Header extends Component {
     render() {
         return (
             <div className='container'>
-                <div className='top-row'>
-                    <div className='right-row'>
-                        {this.state.items.map(
-                            ({ name, className, src, badge, id }) => (
-                                <Menu
-                                    key={id}
-                                    name={name}
-                                    className={className}
-                                    src={src}
-                                    badge={badge}
-                                />
-                            )
-                        )}
+                <div className='header'>
+                    <div className='header__logo'>
+                        <div className='logo'></div>
+                        <div className='demo'></div>
+                    </div>
+                    <div className='header__menu'>
+                        {this.state.items.map(({ id, ...otherItemProps }) => (
+                            <Menu key={id} {...otherItemProps} />
+                        ))}
                     </div>
                 </div>
             </div>
