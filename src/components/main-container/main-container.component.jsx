@@ -2,9 +2,9 @@ import React from "react";
 import Sidebar from "../sidebar/sidebar.component";
 import Dashboard from "../dashboard/dashboard.component";
 
-import "./cart.styles.scss";
+import "./main-container.styles.scss";
 
-function Cart() {
+function MainContainer() {
     return (
         <div className='columns'>
             <div className='left-column'>
@@ -19,4 +19,4 @@ function Cart() {
     );
 }
 
-export default Cart;
+export default MainContainer;

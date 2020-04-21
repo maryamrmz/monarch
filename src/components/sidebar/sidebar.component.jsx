@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { SidebarList } from "../sidebar-list/sidebar-list.component";
 
 import "./sidebar.styles.scss";
@@ -25,7 +25,7 @@ class Sidebar extends Component {
                     <SidebarList key={id} {...otherItemProps} />
                 ))}
             </div>
-        )
+        );
     }
 }
 

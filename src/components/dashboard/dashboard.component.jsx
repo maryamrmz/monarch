@@ -20,12 +20,10 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className='charts'>
-                <div className='summary'>
-                    {this.state.box.map(({ id, ...otherItemProps }) => (
-                        <DashboardItem key={id} {...otherItemProps} />
-                    ))}
-                </div>
+            <div className='summary'>
+                {this.state.box.map(({ id, ...otherItemProps }) => (
+                    <DashboardItem key={id} {...otherItemProps} />
+                ))}
             </div>
         )
     }
