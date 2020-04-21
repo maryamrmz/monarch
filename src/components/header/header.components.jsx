@@ -27,13 +27,13 @@ class Header extends Component {
 
     render() {
         return (
-            <div className='header'>
-                <div className='header__logo'>
+            <div className='head'>
+                <div className='head__logo'>
                     {this.state.logo.map(({ id, ...otherItemProps }) => (
                         <Logo key={id} {...otherItemProps} />
                     ))}
                 </div>
-                <div className='header__menu'>
+                <div className='head__menu'>
                     {this.state.menu.map(({ id, ...otherItemProps }) => (
                         <Menu key={id} {...otherItemProps} />
                     ))}

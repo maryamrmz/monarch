@@ -5,7 +5,7 @@ import "./logo.styles.scss";
 
 export const Logo = ({ name, className, src, span, p, img }) => (
     <div className={className}>
-        <Link to='#' className='left' title={name}>
+        <Link to='/' className='left' title={name}>
             <img src={src} alt='' className='logo-image' />
             <div className='text'>
                 {p && <p>{p}</p>}

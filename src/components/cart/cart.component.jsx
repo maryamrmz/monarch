@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { CartList } from "../cart-list/cart-list.component";
+import { DashboardItem } from "../dashboard-item/dashboard-item.component";
 
 import "./cart.styles.scss";
 
@@ -9,13 +10,16 @@ class Cart extends Component {
 
         this.state = {
             cart: [],
+            box: [],
         };
     }
 
     componentDidMount() {
         fetch("data.json")
             .then((data) => data.json())
-            .then((items) => this.setState({ cart: items.lists }));
+            .then((items) =>
+                this.setState({ cart: items.lists, box: items.boxes })
+            );
     }
 
     render() {
@@ -27,6 +31,15 @@ class Cart extends Component {
                             <CartList key={id} {...otherItemProps} />
                         ))}
                     </ul>
+                </div>
+                <div className='right-column'>
+                    <div className='charts'>
+                        <div className='summary'>
+                            {this.state.box.map(({ id, ...otherItemProps }) => (
+                                <DashboardItem key={id} {...otherItemProps} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         );
