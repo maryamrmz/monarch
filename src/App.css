@@ -23,3 +23,8 @@ li {
     text-decoration: none;
     color: inherit;
 }
+
+.container {
+    min-height: 700px;
+    width: 100%;
+}

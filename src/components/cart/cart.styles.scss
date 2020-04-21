@@ -1,0 +1,10 @@
+.columns {
+    height: calc(100% - 78px);
+    width: 100%;
+    display: flex;
+
+    .left-column {
+        order: 1;
+        flex: 13;
+    }
+}
