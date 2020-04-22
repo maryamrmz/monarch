@@ -1,46 +1,20 @@
-import React, { Component } from "react";
-import { Menu } from "../menu/menu.component";
-import { Logo } from "../logo/logo.component";
+import React from "react";
+import Menu from "../menu/menu.component";
+import Logo from "../logo/logo.component";
 
 import "./header.styles.scss";
 
-class Header extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            menu: [],
-            logo: [],
-        };
-    }
-
-    componentDidMount() {
-        fetch("data.json")
-            .then((res) => res.json())
-            .then((items) =>
-                this.setState({
-                    menu: items.menuItems,
-                    logo: items.logoItems,
-                })
-            );
-    }
-
-    render() {
-        return (
-            <div className='head'>
-                <div className='head__logo'>
-                    {this.state.logo.map(({ id, ...otherItemProps }) => (
-                        <Logo key={id} {...otherItemProps} />
-                    ))}
-                </div>
-                <div className='head__menu'>
-                    {this.state.menu.map(({ id, ...otherItemProps }) => (
-                        <Menu key={id} {...otherItemProps} />
-                    ))}
-                </div>
+function Header() {
+    return (
+        <div className='head'>
+            <div className='head__logo'>
+                <Logo />
             </div>
-        );
-    }
+            <div className='head__menu'>
+                <Menu />
+            </div>
+        </div>
+    );
 }
 
 export default Header;

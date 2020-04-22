@@ -1,19 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component, Fragment } from "react";
+import { LogoItem } from "../logo-item/logo-item.component";
 
-import "./logo.styles.scss";
+class Logo extends Component {
+    constructor() {
+        super();
 
-export const Logo = ({ name, className, src, span, p, img }) => (
-    <div className={className}>
-        <Link to='/' className='left' title={name}>
-            <img src={src} alt='' className='logo-image' />
-            <div className='text'>
-                {p && <p>{p}</p>}
-                <span>{span}</span>
-            </div>
-        </Link>
-        <Link to='#' className='right'>
-            <img src={img} alt='' />
-        </Link>
-    </div>
-);
+        this.state = {
+            logo: [],
+        };
+    }
+
+    componentDidMount() {
+        fetch("data.json")
+            .then((res) => res.json())
+            .then((items) => this.setState({ logo: items.logoItems }));
+    }
+
+    render() {
+        return (
+            <Fragment>
+                {this.state.logo.map(({ id, ...otherItemProps }) => (
+                    <LogoItem key={id} {...otherItemProps} />
+                ))}
+            </Fragment>
+        );
+    }
+}
+
+export default Logo;

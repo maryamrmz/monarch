@@ -1,11 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Component, Fragment } from 'react';
+import { MenuItem } from "../menu-item/menu-item.component";
 
-import "./menu.styles.scss";
+class Menu extends Component {
+    constructor() {
+        super()
 
-export const Menu = ({ name, className, src, badge }) => (
-    <Link to='#' title={name} className={className}>
-        <img src={src} alt='' />
-        <img src={badge} alt='' className='small' />
-    </Link>
-);
+        this.state = {
+            menu: []
+        }
+    }
+
+    componentDidMount() {
+        fetch("data.json")
+            .then(res => res.json())
+            .then(items => this.setState({ menu: items.menuItems }))
+    }
+
+    render() {
+        return (
+            <Fragment>
+                {this.state.menu.map(({ id, ...otherItemProps }) => (
+                    <MenuItem key={id} {...otherItemProps} />
+                ))}
+            </Fragment>
+
+        )
+    }
+}
+
+export default Menu;
