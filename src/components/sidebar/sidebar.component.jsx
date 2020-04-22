@@ -14,7 +14,7 @@ class Sidebar extends Component {
 
     componentDidMount() {
         fetch("data.json")
-            .then((data) => data.json())
+            .then((res) => res.json())
             .then((items) => this.setState({ list: items.lists }));
     }
 

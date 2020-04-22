@@ -7,12 +7,8 @@ import "./header.styles.scss";
 function Header() {
     return (
         <div className='head'>
-            <div className='head__logo'>
-                <Logo />
-            </div>
-            <div className='head__menu'>
-                <Menu />
-            </div>
+            <Logo />
+            <Menu />
         </div>
     );
 }

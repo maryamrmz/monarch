@@ -1,30 +1,31 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from "react";
 import { MenuItem } from "../menu-item/menu-item.component";
+
+import "./menu.styles.scss";
 
 class Menu extends Component {
     constructor() {
-        super()
+        super();
 
         this.state = {
-            menu: []
-        }
+            menu: [],
+        };
     }
 
     componentDidMount() {
         fetch("data.json")
-            .then(res => res.json())
-            .then(items => this.setState({ menu: items.menuItems }))
+            .then((res) => res.json())
+            .then((items) => this.setState({ menu: items.menuItems }));
     }
 
     render() {
         return (
-            <Fragment>
+            <div className='head__menu'>
                 {this.state.menu.map(({ id, ...otherItemProps }) => (
                     <MenuItem key={id} {...otherItemProps} />
                 ))}
-            </Fragment>
-
-        )
+            </div>
+        );
     }
 }
 

@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { LogoItem } from "../logo-item/logo-item.component";
+
+import "./logo.styles.scss";
 
 class Logo extends Component {
     constructor() {
@@ -18,11 +20,11 @@ class Logo extends Component {
 
     render() {
         return (
-            <Fragment>
+            <div className='head__logo'>
                 {this.state.logo.map(({ id, ...otherItemProps }) => (
                     <LogoItem key={id} {...otherItemProps} />
                 ))}
-            </Fragment>
+            </div>
         );
     }
 }
