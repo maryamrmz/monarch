@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import "./dashboard-item.styles.scss";
+import {
+    BoxesContainer,
+    HeaderContainer,
+    DollarContainer,
+    MainContainer,
+    ContentContainer,
+    FooterContainer,
+    Percent,
+    Box,
+    TextContainer,
+} from "./dashboard-item.styles";
 
 export const DashboardItem = ({
     dollar,
@@ -15,25 +24,23 @@ export const DashboardItem = ({
     img,
 }) => {
     return (
-        <div className='boxes'>
-            <div className='header'>
-                <span className='dollar'>{dollar}</span>
-                <span className={percentColor}>{percent}</span>
-            </div>
-            <div className='main'>
-                <span className='text'>{text}</span>
-            </div>
-            <div className='content'>
+        <BoxesContainer>
+            <HeaderContainer>
+                <DollarContainer>{dollar}</DollarContainer>
+                <Percent percentColor={percentColor}>{percent}</Percent>
+            </HeaderContainer>
+            <MainContainer>
+                <span>{text}</span>
+            </MainContainer>
+            <ContentContainer>
                 <img src={src} alt='' />
-            </div>
-            <div className='footer'>
-                <Link to='/' className='text'>
-                    {footer}
-                </Link>
-                <Link to='/' className={box} title={name}>
+            </ContentContainer>
+            <FooterContainer>
+                <TextContainer to='/'>{footer}</TextContainer>
+                <Box to='/' boxColor={box} title={name}>
                     <img src={img} alt='' />
-                </Link>
-            </div>
-        </div>
+                </Box>
+            </FooterContainer>
+        </BoxesContainer>
     );
 };

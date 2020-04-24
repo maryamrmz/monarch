@@ -1,4 +1,6 @@
-.head__logo {
+import styled from "styled-components";
+
+export const HeaderLogoContainer = styled.div`
     flex: 50;
     display: flex;
     justify-content: flex-start;
@@ -7,4 +9,4 @@
     .left {
         margin-left: 15px;
     }
-}
+`;

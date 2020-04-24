@@ -1,20 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import "./sidebar-list.styles.scss";
+import { LiContainer, ImgContainer, SpanContainer, LinkContainer } from "./sidebar-list.styles"
 
-export const SidebarList = ({ className, name, src, img }) => {
+export const SidebarList = ({ name, src, img }) => {
     return (
-        <li className={className} title={name}>
-            <Link to='/'>
-                <img src={src} alt='' />
-                <span>{name}</span>
-            </Link>
+        <LiContainer title={name}>
+            <LinkContainer to='/sidebar'>
+                <ImgContainer src={src} alt='' />
+                <SpanContainer>{name}</SpanContainer>
+            </LinkContainer>
             {img && (
-                <Link to='#'>
-                    <img src={img} alt='' />
-                </Link>
+                <LinkContainer to='/sidebar'>
+                    <ImgContainer src={img} alt='' />
+                </LinkContainer>
             )}
-        </li>
+        </LiContainer>
     );
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { DashboardItem } from "../dashboard-item/dashboard-item.component";
 
-import "./dashboard.styles.scss";
+import { DashboardContainer } from "./dashboard.styles";
 
 class Dashboard extends Component {
     constructor() {
@@ -20,11 +20,11 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className='summary'>
+            <DashboardContainer>
                 {this.state.box.map(({ id, ...otherItemProps }) => (
                     <DashboardItem key={id} {...otherItemProps} />
                 ))}
-            </div>
+            </DashboardContainer>
         )
     }
 }

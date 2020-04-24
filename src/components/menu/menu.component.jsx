@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MenuItem } from "../menu-item/menu-item.component";
 
-import "./menu.styles.scss";
+import { HeaderMenuContainer } from "./menu.styles";
 
 class Menu extends Component {
     constructor() {
@@ -20,11 +20,11 @@ class Menu extends Component {
 
     render() {
         return (
-            <div className='head__menu'>
+            <HeaderMenuContainer>
                 {this.state.menu.map(({ id, ...otherItemProps }) => (
                     <MenuItem key={id} {...otherItemProps} />
                 ))}
-            </div>
+            </HeaderMenuContainer>
         );
     }
 }

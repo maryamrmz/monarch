@@ -1,4 +1,6 @@
-.logo {
+import styled, { css } from "styled-components";
+
+const logoContainer = css`
     width: 33%;
     min-width: 230px;
     height: 78px;
@@ -53,9 +55,9 @@
             }
         }
     }
-}
+`;
 
-.demo {
+const demoContainer = css`
     width: 25%;
     min-width: 200px;
     height: 78px;
@@ -98,4 +100,19 @@
             display: none;
         }
     }
-}
+`;
+
+const getClassName = (props) => {
+    switch (props.name) {
+        case "logo":
+            return logoContainer;
+        case "demo":
+            return demoContainer;
+        default:
+            break;
+    }
+};
+
+export const Logo = styled.div`
+    ${getClassName}
+`;

@@ -2,20 +2,20 @@ import React from "react";
 import Sidebar from "../sidebar/sidebar.component";
 import Dashboard from "../dashboard/dashboard.component";
 
-import "./main-container.styles.scss";
+import { ColumnsContainer, LeftColumnContainer, RightColumnContainer } from "./main-container.styles";
 
 function MainContainer() {
     return (
-        <div className='columns'>
-            <div className='left-column'>
+        <ColumnsContainer>
+            <LeftColumnContainer>
                 <ul>
                     <Sidebar />
                 </ul>
-            </div>
-            <div className='right-column'>
+            </LeftColumnContainer>
+            <RightColumnContainer>
                 <Dashboard />
-            </div>
-        </div>
+            </RightColumnContainer>
+        </ColumnsContainer>
     );
 }
 

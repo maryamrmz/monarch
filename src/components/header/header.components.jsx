@@ -2,14 +2,14 @@ import React from "react";
 import Menu from "../menu/menu.component";
 import Logo from "../logo/logo.component";
 
-import "./header.styles.scss";
+import { HeaderContainer } from "./header.styles";
 
 function Header() {
     return (
-        <div className='head'>
+        <HeaderContainer>
             <Logo />
             <Menu />
-        </div>
+        </HeaderContainer>
     );
 }
 

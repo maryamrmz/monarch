@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-import "./menu-item.styles.scss";
+import { Size, SmallContainer } from "./menu-item.styles";
 
 export const MenuItem = ({ name, className, src, badge }) => (
-    <Link to='#' title={name} className={className}>
+    <Size to='/menu' title={name} name={className}>
         <img src={src} alt='' />
-        <img src={badge} alt='' className='small' />
-    </Link>
+        <SmallContainer src={badge} alt='' />
+    </Size>
 );

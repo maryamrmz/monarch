@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { SidebarList } from "../sidebar-list/sidebar-list.component";
 
-import "./sidebar.styles.scss";
-
 class Sidebar extends Component {
     constructor() {
         super();

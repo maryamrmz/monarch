@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { LogoItem } from "../logo-item/logo-item.component";
 
-import "./logo.styles.scss";
+import { HeaderLogoContainer } from "./logo.styles";
 
 class Logo extends Component {
     constructor() {
@@ -20,11 +20,11 @@ class Logo extends Component {
 
     render() {
         return (
-            <div className='head__logo'>
+            <HeaderLogoContainer>
                 {this.state.logo.map(({ id, ...otherItemProps }) => (
                     <LogoItem key={id} {...otherItemProps} />
                 ))}
-            </div>
+            </HeaderLogoContainer>
         );
     }
 }
