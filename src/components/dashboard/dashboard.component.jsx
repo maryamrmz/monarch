@@ -1,32 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from "react";
 import { DashboardItem } from "../dashboard-item/dashboard-item.component";
 
 import { DashboardContainer } from "./dashboard.styles";
 
-class Dashboard extends Component {
-    constructor() {
-        super()
+const Dashboard = () => {
+    const [box, setBox] = useState([]);
 
-        this.state = {
-            box: []
-        }
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         fetch("data.json")
-            .then(res => res.json())
-            .then(items => this.setState({ box: items.boxes }))
-    }
+            .then((res) => res.json())
+            .then((items) => setBox(items.boxes));
+    });
 
-    render() {
-        return (
-            <DashboardContainer>
-                {this.state.box.map(({ id, ...otherItemProps }) => (
-                    <DashboardItem key={id} {...otherItemProps} />
-                ))}
-            </DashboardContainer>
-        )
-    }
-}
+    return (
+        <DashboardContainer>
+            {box.map(({ id, ...otherItemProps }) => (
+                <DashboardItem key={id} {...otherItemProps} />
+            ))}
+        </DashboardContainer>
+    );
+};
 
 export default Dashboard;

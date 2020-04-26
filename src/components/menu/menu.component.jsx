@@ -1,32 +1,25 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { MenuItem } from "../menu-item/menu-item.component";
 
 import { HeaderMenuContainer } from "./menu.styles";
 
-class Menu extends Component {
-    constructor() {
-        super();
+const Menu = () => {
+    const [menu, setMenu] = useState([])
 
-        this.state = {
-            menu: [],
-        };
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         fetch("data.json")
             .then((res) => res.json())
-            .then((items) => this.setState({ menu: items.menuItems }));
-    }
+            .then((items) => setMenu(items.menuItems));
+    }, [menu])
 
-    render() {
-        return (
-            <HeaderMenuContainer>
-                {this.state.menu.map(({ id, ...otherItemProps }) => (
-                    <MenuItem key={id} {...otherItemProps} />
-                ))}
-            </HeaderMenuContainer>
-        );
-    }
+    return (
+        <HeaderMenuContainer>
+            {menu.map(({ id, ...otherItemProps }) => (
+                <MenuItem key={id} {...otherItemProps} />
+            ))}
+        </HeaderMenuContainer>
+    );
 }
+
 
 export default Menu;

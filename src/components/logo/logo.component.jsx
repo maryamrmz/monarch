@@ -1,32 +1,24 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { LogoItem } from "../logo-item/logo-item.component";
 
 import { HeaderLogoContainer } from "./logo.styles";
 
-class Logo extends Component {
-    constructor() {
-        super();
+const Logo = () => {
+    const [logo, setLogo] = useState([]);
 
-        this.state = {
-            logo: [],
-        };
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         fetch("data.json")
             .then((res) => res.json())
-            .then((items) => this.setState({ logo: items.logoItems }));
-    }
+            .then((items) => setLogo(items.logoItems));
+    }, [logo]);
 
-    render() {
-        return (
-            <HeaderLogoContainer>
-                {this.state.logo.map(({ id, ...otherItemProps }) => (
-                    <LogoItem key={id} {...otherItemProps} />
-                ))}
-            </HeaderLogoContainer>
-        );
-    }
-}
+    return (
+        <HeaderLogoContainer>
+            {logo.map(({ id, ...otherItemProps }) => (
+                <LogoItem key={id} {...otherItemProps} />
+            ))}
+        </HeaderLogoContainer>
+    );
+};
 
 export default Logo;
