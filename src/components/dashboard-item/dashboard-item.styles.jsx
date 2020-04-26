@@ -151,7 +151,7 @@ const greenBoxContainer = css`
 `;
 
 const getBoxColor = (props) => {
-    switch (props.boxColor) {
+    switch (props.color) {
         case "blue-box":
             return blueBoxContainer;
         case "white-box":

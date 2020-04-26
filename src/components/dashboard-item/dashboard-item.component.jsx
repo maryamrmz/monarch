@@ -37,7 +37,7 @@ export const DashboardItem = ({
             </ContentContainer>
             <FooterContainer>
                 <TextContainer to='/'>{footer}</TextContainer>
-                <Box to='/' boxColor={box} title={name}>
+                <Box to='/' color={box} title={name}>
                     <img src={img} alt='' />
                 </Box>
             </FooterContainer>
